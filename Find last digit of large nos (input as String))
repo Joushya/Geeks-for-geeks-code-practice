@@ -1,0 +1,32 @@
+// User function Template for Java
+
+class Solution {
+    static int getLastDigit(String a, String b) {
+        if(a.length()==1&&a.charAt(0)=='0'&&b.length()==1&&b.charAt(0)=='0')
+        return 1;
+        if(a.length()==1&&a.charAt(0)=='0')
+        return 0;
+        if(b.length()==1&&b.charAt(0)=='0')
+        return 1;
+        int num1=a.charAt(a.length()-1)-'0';
+        int num2=0;
+        for(int i=0;i<b.length();i++){
+            num2=num2*10+b.charAt(i)-'0';
+            num2%=4;
+        }
+        if(num2==0)
+        num2=4;
+        int r=(int) Math.pow(num1,num2);
+        r=r%10;
+        return r;
+        
+        
+    }
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        String a=sc.next();
+        String b=sc.next();
+        System.out.print(getLastDigit(a,b));
+        
+    }
+};
